@@ -79,17 +79,119 @@ public class DataStructuresAndAlgorithms {
     }//end method
     
     public static void testGraph(){
-        Graph g = new Graph(7, false);
-        g.conncect(0, 1);
-        g.conncect(1, 4);
-        g.conncect(4, 0);
+        Graph g;
+        //g = new Graph(5, false);
+//        g.conncect(0, 1);
+//        g.conncect(1, 3);
+//        g.conncect(1, 2);
+//        g.conncect(3, 4);
+//        
+//        g.print();
+//        
+//        g.printPath(4, g.DFS(0));
+//        //System.out.println("has cycle : " + g.hasCycle());
+//        //System.out.println("number of connected components " + g.numConncectedComponents());
+//        g.printPath(4, g.BFS(0));
         
-        g.conncect(3, 6);
+        //test djkastra's algorthim
+//        g = new Graph(5, false);
+//        g.conncect(0, 1, 2);
+//        g.conncect(0, 2, 5);
+//        
+//        g.conncect(1, 2, 1);
+//        g.conncect(1, 3, 3);
+//        
+//        g.conncect(2, 4, 2);
+//        
+//        g.conncect(3, 4, 4);
+//        
+//        g.print();
+//        
+//        g.printPath(4, g.applyDjKastraAlgorithm(0)[1]);
+
+        // test topolocial sort
+//        g = new Graph(6, true);
+//        g.conncect(0, 1);
+//        g.conncect(0, 2);
+//        g.conncect(1, 4);
+//        g.conncect(2, 1);
+//        g.conncect(2, 3);
+//        g.conncect(3, 4);
+//        g.conncect(5, 1);
+//        
+//        g.print();
+//        
+//        int[] order = g.topologicalSort();
+//        System.out.println(g.hasCycle());
+//        for(int i = 0; i < g.numVertex; i++){
+//            System.out.print(order[i] + " ");
+//        }//end for
+//        System.out.println();
+        //test kruskal's algortihm
+//        g = new Graph(4, false);
+//        g.conncect(0, 1, 3);
+//        g.conncect(0, 3, 1);
+//        
+//        g.conncect(1, 2, 4);
+//        g.conncect(1, 3, 2);
+//        
+//        g.conncect(2, 3, 4);
+//        
+//        //g.print();
+//        //Graph mst = g.applyKruskal();
+//        Graph mst = g.applyPrim();
+//        System.out.println("The minimum spanning tree has cycle? " + mst.hasCycle());
+//        mst.print();
+
+        //test hamiltonian path
+//        g = new Graph(5, false);
+//        
+//        g.conncect(0, 1);
+//        g.conncect(0, 3);
+//        
+//        g.conncect(1, 2);
+//        g.conncect(1, 3);
+//        g.conncect(1, 4);
+//        
+//        g.conncect(2, 4);
+//        
+//        //g.conncect(3, 4);
+//        
+//        //g.print();
+//        
+//        //int[] hamPath = g.getHamiltonianPath();
+//        int[] hamPath = g.getHamiltonianCycle();
+//        if(hamPath != null){
+//            for(int i = 0; i < hamPath.length; i++){
+//                System.out.print(hamPath[i] + " ");
+//            }
+//            System.out.println();
+//        }else{
+//            System.out.println("No hamiltonian cycle");
+//        }
+
+        //check tsp problem
+        g = new Graph(4, false);
         
-        g.print();
+        g.conncect(0, 1, 1);
+        g.conncect(0, 2, 1);
+        g.conncect(0, 3, 1);
         
-        System.out.println("has cycle : " + g.hasCycle());
+        g.conncect(1, 2, 1);
+        g.conncect(1, 3, 1);
+        
+        g.conncect(2, 3, 1);
+        
+        int[] path = g.getTSPCycle();
+        if(path != null){
+            for(int i = 0; i < g.numVertex + 1; i++){
+                System.out.print(path[i] + " ");
+            }//end for
+        }
+        System.out.println();
     }//end of method
+    
+    
     public static void main(String[] args) {
         
         testGraph();;
