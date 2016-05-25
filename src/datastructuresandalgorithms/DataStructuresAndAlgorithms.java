@@ -191,10 +191,84 @@ public class DataStructuresAndAlgorithms {
         System.out.println();
     }//end of method
     
+    public static void testSorting(){
+        int [] a = {7, 1, 3, 8, 0, 2, 5};
+        //SortingAlgorithms.bubbleSort(a);
+        //SortingAlgorithms.mergeSort(a);
+        SortingAlgorithms.quickSort(a);
+        SortingAlgorithms.printArray(a);
+    }//end of method
+    
+    public static void testHashLinearProbing(){
+        int[] keys = {5, 3, 4, 6, 0, 5};
+        int[] test = {5, 4};
+        int[] del = {5, 1, 4};
+        
+        //int insert
+        HashTableLinearProbing hs = new HashTableLinearProbing(keys.length);
+        for(int i = 0; i < keys.length; i++){
+            hs.add(keys[i]);
+        }
+        
+        for(int i = 0; i < test.length; i++){
+            System.out.println(test[i] + " exists " + hs.find(test[i]));
+        }//end for
+        
+        //delete some keys
+        for(int i = 0; i < del.length; i++){
+            System.out.println(del[i] + " deleting " );
+            hs.delete(del[i]);
+        }//end for
+        
+        //test again
+        for(int i = 0; i < keys.length; i++){
+            System.out.println(keys[i] + " exists " + hs.find(keys[i]));
+        }//end for
+    }//end for
+    
+    public static void testStack(){
+        int[] elem = {1, 2, 3, 4, 5};
+        StackArray stack = new StackArray(5);
+        for(int i = 0; i < 5; i++){
+            stack.push(elem[i]);
+        }
+        
+        for(int i = 0; i < 5; i++){
+            System.out.println(stack.pop());
+        }
+        
+    }//end of test
+    
+    public static void testQueue(){
+        int[] elem = {1, 2, 3, 4, 5};
+        QueueArray q = new QueueArray(5);
+        for(int i = 0; i < 5; i++){
+            q.enque(elem[i]);
+        }
+        
+        for(int i = 0; i < 5; i++){
+            System.out.println(q.dequeue());
+        }
+        
+    }//end of test
+    
+    public static void testList(){
+        int[] elem = {1,2,3,4};
+        LinkedListSaif ls = new LinkedListSaif();
+        for(int i = 0; i < elem.length; i++){
+            ls.addLast(elem[i]);
+        }//end for
+        ls.deleteAt(3);
+        ls.deleteAt(0);
+        for(int i = 0; i < ls.size(); i++){
+            System.out.println(ls.get(i));
+        }
+    }//end of class
+    
     
     public static void main(String[] args) {
         
-        testGraph();;
+        testList();
         
     }//end main
     
