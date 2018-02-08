@@ -1,4 +1,4 @@
-# DataStructuresAndAlgorithms
+# DataStructures
 Implementation of Well known Data structures and algorithms in java
 
 You will find implementation of the following Data Structures:
@@ -13,7 +13,8 @@ You will find implementation of the following Data Structures:
 9. Queue
 10. Stack
 
-The following algorithms can be found:
+# Algorithms
+## Graph
 1. DFS
 2. BSF
 3. Cycle detection using disjoint set forrest
@@ -25,3 +26,8 @@ The following algorithms can be found:
 10. Hamiltonian path finder
 11. Hamiltonian cycle finder
 12. Travelling Salesman Path finder
+
+## Sorting
+1. Bubble sort
+2. Merge sort
+3. Quick sort
