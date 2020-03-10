@@ -1,0 +1,15 @@
+#0 log rules
+log(a, b) => a is the base
+l0g(a, b) = c then b = a ^ c
+
+when doing recursive call's, it can happen that you are calling the same function again and again.
+
+fibonacci number generator recursive method:
+f(n) = f(n-1) + f(n-2)
+
+some methods will get called several times
+                          f(n)
+              f(n-1)              f(n-2)
+          f(n-2)  f(n-3)      f(n-3)    f(n-4)
+
+as we can see f(n) gets computed once, f(n-1) gets computed once, f(n-2) gets computed twice.
