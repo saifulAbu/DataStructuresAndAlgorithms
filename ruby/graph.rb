@@ -16,16 +16,37 @@ class Graph
   def print
     p @graph_list
   end
+
+  def dfs(start_node)
+    path = {}
+    visited = {}
+    dfs_helper(start_node, visited, path)
+    return path
+  end
+
+  private
+  def dfs_helper(cur_node, visited, path)
+    visited[cur_node] = true
+    neighbors = @graph_list[cur_node]
+    neighbors.each do
+      |neighbor|
+        next if visited[neighbor.dest]
+        dest = neighbor.dest
+        path[dest] = cur_node
+        dfs_helper(dest, visited, path)
+    end
+  end
 end
 
-inf = Float::INFINITY
+i = Float::INFINITY
 matrix = [
-  [inf, 1, inf, inf],
-  [inf, inf, 1, inf],
-  [inf, inf, inf, 1],
-  [inf, 1, 1, inf]
+  [i, 1, 1, i, i],
+  [i, i, 1, i, i],
+  [i, i, i, 1, 1],
+  [i, i, i, i, 1],
+  [i, i, i, i, i]
  ]
 
 graph = Graph.new()
 graph.init_from_matrix(matrix)
-graph.print
+p graph.dfs(0)
