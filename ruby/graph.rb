@@ -1,4 +1,6 @@
 require "ostruct"
+require "pry"
+require "pry-nav"
 
 class Graph
   # n x n adjacency matrix
@@ -24,7 +26,6 @@ class Graph
     return path
   end
 
-  private
   def dfs_helper(cur_node, visited, path)
     visited[cur_node] = true
     neighbors = @graph_list[cur_node]
@@ -36,6 +37,32 @@ class Graph
         dfs_helper(dest, visited, path)
     end
   end
+
+  def bfs(start_node)
+    path = {}
+    visited = Hash.new() {false}
+
+    queue = Queue.new
+    queue.enq start_node
+
+    visited[start_node] = true
+    until queue.empty?
+      src = queue.deq
+      neighbors = @graph_list[src]
+      neighbors.each do
+        |neighbor|
+        dest = neighbor.dest
+        next if visited[dest]
+        visited[dest] = true
+        path[dest] = src
+        queue.enq dest
+      end
+      #binding.pry
+    end
+
+    path
+  end
+
 end
 
 i = Float::INFINITY
@@ -49,4 +76,5 @@ matrix = [
 
 graph = Graph.new()
 graph.init_from_matrix(matrix)
-p graph.dfs(0)
+#p graph.dfs(0)
+p graph.bfs(0)
