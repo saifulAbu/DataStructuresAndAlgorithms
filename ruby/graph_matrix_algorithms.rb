@@ -1,3 +1,6 @@
+require "pry"
+require "pry-nav"
+
 def dfs(matrix, src)
   visited = {}
   path = {}
@@ -11,9 +14,34 @@ def dfs_helper(matrix, src, visited, path)
   neighbors = matrix[src]
   for dest in (0..(neighbors.size - 1)) do
     next if neighbors[dest] == Float::INFINITY
-    path[dest] = src
-    dfs_helper(matrix, dest, visited, path)
+    unless visited[dest]
+      path[dest] = src
+      dfs_helper(matrix, dest, visited, path)
+    end
   end
+end
+
+def bfs(matrix, src)
+  path = {}
+  visited = Hash.new() {false}
+  queue = Queue.new
+  queue.enq(src)
+  visited[src] = true
+
+  until queue.empty?
+    #binding.pry
+    src = queue.deq
+    dests = matrix[src]
+
+    for dest in (0..(dests.size - 1)) do
+      next if visited[dest] or dests[dest] == Float::INFINITY
+      visited[dest] = true
+      path[dest] = src
+      queue.enq dest
+    end
+  end
+
+  path
 end
 
 x = Float::INFINITY
@@ -26,3 +54,4 @@ matrix = [
  ]
 
 p dfs(matrix, 0)
+p bfs(matrix, 0)

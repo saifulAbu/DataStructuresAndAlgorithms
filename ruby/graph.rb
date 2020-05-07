@@ -76,5 +76,5 @@ matrix = [
 
 graph = Graph.new()
 graph.init_from_matrix(matrix)
-#p graph.dfs(0)
-p graph.bfs(0)
+p graph.dfs(0)
+#p graph.bfs(0)
